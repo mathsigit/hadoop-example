@@ -1,0 +1,17 @@
+ext {
+    versions = [:]
+    libs = [:]
+}
+versions["hadoop"] = project.hasProperty('hadoop.version') ? project.properties['hadoop.version'] : "2.8.4"
+versions["log4j"] = project.hasProperty('log4j.version') ? project.properties['log4j.version'] : "1.2.17"
+versions["junit"] = project.hasProperty('junit.version') ? project.properties['junit.version'] : "4.12"
+libs += [
+        hadoopCommon: "org.apache.hadoop:hadoop-common:$versions.hadoop",
+        hadoopHdfs: "org.apache.hadoop:hadoop-hdfs:$versions.hadoop",
+        hadoopYarnCommon: "org.apache.hadoop:hadoop-yarn-common:$versions.hadoop",
+        hadoopMinicluster: "org.apache.hadoop:hadoop-minicluster:$versions.hadoop",
+        hadoopClient: "org.apache.hadoop:hadoop-client:$versions.hadoop",
+        hadoopMinikdc: "org.apache.hadoop:hadoop-minikdc:$versions.hadoop",
+        log4j: "log4j:log4j:$versions.log4j",
+        junit: "junit:junit:$versions.junit"
+]
